@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1542428588393.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3067905779",
+    "id" : "54283FCC",
+    "lastKnownWriteTime" : 1542428732,
+    "last_content_update" : 1542428732613,
+    "path" : "D:/Rbook2/testbook1/02-literature.Rmd",
+    "project_path" : "02-literature.Rmd",
+    "properties" : {
+        "cursorPosition" : "36,3",
+        "scrollLine" : "15"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

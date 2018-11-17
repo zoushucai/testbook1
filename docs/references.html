@@ -47,6 +47,21 @@
 
 
 
+<script src="libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<link href="libs/dygraphs-1.1.1/dygraph.css" rel="stylesheet" />
+<script src="libs/dygraphs-1.1.1/dygraph-combined.js"></script>
+<script src="libs/dygraphs-1.1.1/shapes.js"></script>
+<script src="libs/moment-2.8.4/moment.js"></script>
+<script src="libs/moment-timezone-0.2.5/moment-timezone-with-data.js"></script>
+<script src="libs/moment-fquarter-1.0.0/moment-fquarter.min.js"></script>
+<script src="libs/dygraphs-binding-1.1.1.6/dygraphs.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.5/datatables.js"></script>
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.16/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.16/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
 
 
 <style type="text/css">
@@ -112,7 +127,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.2" data-path="applications.html"><a href="applications.html#example-two"><i class="fa fa-check"></i><b>5.2</b> Example two</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>6</b> Final Words</a></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a><ul>
+<li class="chapter" data-level="6.1" data-path="references.html"><a href="references.html#section-6.1"><i class="fa fa-check"></i><b>6.1</b> 1. 简介与安装</a></li>
+<li class="chapter" data-level="6.2" data-path="references.html"><a href="references.html#api"><i class="fa fa-check"></i><b>6.2</b> 2. 使用前的准备工作—API秘钥申请</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="references.html"><a href="references.html#api-2018-9-26"><i class="fa fa-check"></i><b>6.2.1</b> 2.1 百度地图API密匙申请步骤 (2018-9-26)</a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="references.html"><a href="references.html#remap"><i class="fa fa-check"></i><b>6.3</b> 3. remap–入门的示例</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="references.html"><a href="references.html#feature"><i class="fa fa-check"></i><b>6.3.1</b> 3.1 Feature</a></li>
+<li class="chapter" data-level="6.3.2" data-path="references.html"><a href="references.html#section-6.3.2"><i class="fa fa-check"></i><b>6.3.2</b> 3.2 获取经纬度</a></li>
+<li class="chapter" data-level="6.3.3" data-path="references.html"><a href="references.html#-remap"><i class="fa fa-check"></i><b>6.3.3</b> 3.3 绘制迁徙地图– remap</a></li>
+<li class="chapter" data-level="6.3.4" data-path="references.html"><a href="references.html#get_theme"><i class="fa fa-check"></i><b>6.3.4</b> 3.4个性化设置–get_theme</a></li>
+</ul></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -136,12 +162,700 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="references" class="section level1 unnumbered">
 <h1>References</h1>
 
+<div id="section-6.1" class="section level2">
+<h2><span class="header-section-number">6.1</span> 1. 简介与安装</h2>
+<p>REmap是一个基于Echarts <a href="http://echarts.baidu.com/">http://echarts.baidu.com</a> 的一个R包.主要的目的是为广大数据玩家提供一个简便的,可交互的地图数据可视化工具.目前托管在github, <a href="https://github.com/lchiffon/REmap" class="uri">https://github.com/lchiffon/REmap</a></p>
+<p>安装方式：</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(devtools)
+<span class="kw">install_github</span>(<span class="st">&#39;lchiffon/REmap&#39;</span>)</code></pre></div>
+<ul>
+<li>提示:请使用Chrome或者Firefox来作为默认浏览器</li>
+</ul>
+</div>
+<div id="api" class="section level2">
+<h2><span class="header-section-number">6.2</span> 2. 使用前的准备工作—API秘钥申请</h2>
+<div id="api-2018-9-26" class="section level3">
+<h3><span class="header-section-number">6.2.1</span> 2.1 百度地图API密匙申请步骤 (2018-9-26)</h3>
+<ol style="list-style-type: decimal">
+<li><p>首先打开网址(<a href="http://lbsyun.baidu.com/)注册一个账号。填好信息好提交" class="uri">http://lbsyun.baidu.com/)注册一个账号。填好信息好提交</a></p></li>
+<li><p>其次在首页找到并点击进入【功能与服务】—【地图】–【获取秘钥】，或者直接进入http://lbsyun.baidu.com/apiconsole/key该网站，填写好注册信息即可</p></li>
+<li><p>激活应用后，回到百度会员中心，点击创建应用弹出如下窗口。</p></li>
+</ol>
+<div class="figure">
+<img src="E:\blog2\2018092601.jpg" alt="2018092601" />
+<p class="caption">2018092601</p>
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li>提交后，会出现以下图示一连数字那就是地图的API。</li>
+</ol>
+<div class="figure">
+<img src="E:\blog2\2018092602.jpg" alt="2018092601" />
+<p class="caption">2018092601</p>
+</div>
+<ol start="5" style="list-style-type: decimal">
+<li>最后，你把这串数字放入你的软件中去了，就可以看到效果了。</li>
+</ol>
+</div>
+</div>
+<div id="remap" class="section level2">
+<h2><span class="header-section-number">6.3</span> 3. remap–入门的示例</h2>
+<div id="feature" class="section level3">
+<h3><span class="header-section-number">6.3.1</span> 3.1 Feature</h3>
+<ol style="list-style-type: decimal">
+<li>使用Echarts封包,地图绘制使用的是SVG图形</li>
+<li>采用百度API来自动获取城市的经纬度数据</li>
+<li>支持Windows!</li>
+</ol>
+</div>
+<div id="section-6.3.2" class="section level3">
+<h3><span class="header-section-number">6.3.2</span> 3.2 获取经纬度</h3>
+<p>基本函数:</p>
+<ul>
+<li><code>get_city_coord</code> 获取一个城市的经纬度</li>
+<li><code>get_geo_position</code> 获取一个城市向量的经纬度</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(REmap)
+<span class="kw">remap.init</span>()</code></pre></div>
+<script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+<script src="http://echarts.baidu.com/build/dist/echarts-all.js"></script>
+<script type="text/javascript" src="http://lchiffon.github.io/reveal_slidify/echarts/require/main.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&amp;ak=q9U1lWgCK1aBGVC1DVWrgWa7"></script>
+<script type="text/javascript" src="http://echarts.baidu.com/doc/asset/js/jquery.min.js"></script>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">options</span>(<span class="dt">remap.ak =</span> <span class="st">&quot;FNSpFO6dmAKTmydjCehKYZarv2FxcXzV&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">get_city_coord</span>(<span class="st">&quot;上海&quot;</span>)
+
+city_vec1 =<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Beijing&quot;</span>,<span class="st">&quot;Shanghai&quot;</span>,<span class="st">&quot;Guangzhou&quot;</span>,<span class="st">&quot;四川&quot;</span>,<span class="st">&quot;广西&quot;</span>,<span class="st">&quot;新疆&quot;</span>)
+<span class="kw">get_geo_position</span> (city_vec1)</code></pre></div>
+</div>
+<div id="-remap" class="section level3">
+<h3><span class="header-section-number">6.3.3</span> 3.3 绘制迁徙地图– remap</h3>
+<p>绘制地图使用的是主函数<code>remap</code></p>
+<pre><code>remap(mapdata, title = &quot;&quot;, subtitle = &quot;&quot;, theme =get_theme(&quot;Dark&quot;))</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th>参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>mapdata</code></td>
+<td>一个数据框对象,第一列为出发地点,第二列为到达地点</td>
+</tr>
+<tr class="even">
+<td><code>title</code></td>
+<td>标题</td>
+</tr>
+<tr class="odd">
+<td><code>subtitle</code></td>
+<td>副标题</td>
+</tr>
+<tr class="even">
+<td><code>theme</code></td>
+<td>控制生成地图的颜色,具体将会在<code>get_theme</code>部分说明</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">125</span>)
+origin =<span class="st"> </span><span class="kw">rep</span>(<span class="st">&quot;北京&quot;</span>,<span class="dv">10</span>)
+destination =<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;上海&#39;</span>,<span class="st">&#39;广州&#39;</span>,<span class="st">&#39;大连&#39;</span>,<span class="st">&#39;南宁&#39;</span>,<span class="st">&#39;南昌&#39;</span>,<span class="st">&#39;拉萨&#39;</span>,<span class="st">&#39;长春&#39;</span>,<span class="st">&#39;包头&#39;</span>,<span class="st">&#39;重庆&#39;</span>,<span class="st">&#39;常州&#39;</span>)
+dat =<span class="st"> </span><span class="kw">data.frame</span>(origin,destination)
+dat
+<span class="co">#&gt;    origin destination</span>
+<span class="co">#&gt; 1    北京        上海</span>
+<span class="co">#&gt; 2    北京        广州</span>
+<span class="co">#&gt; 3    北京        大连</span>
+<span class="co">#&gt; 4    北京        南宁</span>
+<span class="co">#&gt; 5    北京        南昌</span>
+<span class="co">#&gt; 6    北京        拉萨</span>
+<span class="co">#&gt; 7    北京        长春</span>
+<span class="co">#&gt; 8    北京        包头</span>
+<span class="co">#&gt; 9    北京        重庆</span>
+<span class="co">#&gt; 10   北京        常州</span>
+
+out =<span class="st"> </span><span class="kw">remap</span>(dat,<span class="dt">title =</span> <span class="st">&quot;REmap实例数据&quot;</span>,<span class="dt">subtitle =</span> <span class="st">&quot;theme:Dark&quot;</span>)
+
+<span class="co"># plot(out) ## htlm输出</span>
+
+<span class="kw">knitrREmap</span>(out,<span class="dt">local=</span>F) ## knitr展示</code></pre></div>
+<div id="ID_20181117122537_331" style="height:300px; width:100%"></div>
+<script>  var myChart = echarts.init(document.getElementById("ID_20181117122537_331"));
+
+                       var optionID_20181117122537_331 = {
+  backgroundColor: '#1b1b1b',
+  color: ['gold','aqua','lime'],
+  title : {
+  text: 'REmap实例数据',
+  subtext:'theme:Dark',
+  x:'center',
+  textStyle : {
+  color: '#fff'
+  }
+  },
+  tooltip : {
+  trigger: 'item',
+  formatter: '{b}'
+  },
+  toolbox: {
+  show : true,
+  orient : 'vertical',
+  x: 'right',
+  y: 'center',
+  feature : {
+  mark : {show: true},
+  dataView : {show: true, readOnly: false},
+  restore : {show: true},
+  saveAsImage : {show: true}
+  }
+  },
+  dataRange: {
+  min : 0,
+  show: false,
+  max : 100,
+  y: '60%',
+  calculable : true,
+  color: ['#ff3333', 'orange', 'yellow','lime','aqua']
+  },
+
+  series : [
+  {
+  type:'map',
+  itemStyle:{
+  normal:{
+  borderColor:'rgba(100,149,237,1)',
+  borderWidth: 0.5,
+  areaStyle:{
+  color: '#1b1b1b'
+  }
+  }
+  },
+  data:[],
+  geoCoord: {'北京': [116.41339,39.91092],
+'上海': [121.48054,31.23593],
+'广州': [113.27143,23.13534],
+'大连': [121.62163,38.91895],
+'南宁': [108.37345,22.82261],
+'南昌': [115.86459,28.68945],
+'拉萨': [ 91.12082,29.65004],
+'长春': [125.33061,43.82195],
+'包头': [109.84654,40.66293],
+'重庆': [106.55844,29.56900],
+'常州': [119.98148,31.81580]},
+
+  markLine : {
+  smooth:true,
+  effect : {
+  show: true,
+  scaleSize: 1,
+  period: 30,
+  color: '#fff',
+  shadowBlur: 10
+  },
+  itemStyle : {
+  color: 'red',
+  normal: {
+  borderWidth:1,
+  lineStyle: {
+  type: 'solid',
+  shadowBlur: 10
+  },
+  label:{show:false}
+  }
+  },
+
+  data : [
+  [{name:'北京'}, {name:'上海',value: 90}],
+[{name:'北京'}, {name:'广州',value: 10}],
+[{name:'北京'}, {name:'大连',value: 30}],
+[{name:'北京'}, {name:'南宁',value: 30}],
+[{name:'北京'}, {name:'南昌',value:100}],
+[{name:'北京'}, {name:'拉萨',value:100}],
+[{name:'北京'}, {name:'长春',value: 50}],
+[{name:'北京'}, {name:'包头',value: 30}],
+[{name:'北京'}, {name:'重庆',value: 70}],
+[{name:'北京'}, {name:'常州',value: 60}]
+  ]
+  },
+  markPoint : {
+  symbol:'emptyCircle',
+  symbolSize : function (v){
+  return 10 + v/10
+  },
+  effect : {
+  show: true,
+  shadowBlur : 0
+  },
+  itemStyle:{
+  normal:{
+  label:{show:true}
+  }
+  },
+  data : [
+  {name:'上海',value: 90},
+{name:'广州',value: 10},
+{name:'大连',value: 30},
+{name:'南宁',value: 30},
+{name:'南昌',value:100},
+{name:'拉萨',value:100},
+{name:'长春',value: 50},
+{name:'包头',value: 30},
+{name:'重庆',value: 70},
+{name:'常州',value: 60}
+  ]
+  }
+  }
+  ]
+  };
+  myChart.setOption(optionID_20181117122537_331);	</script>
+<p>该地图会写成一个html文件,保存在电脑里面,并通过浏览器打开该文件.以下的方式都可以看到这个地图:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## Method 1
+p =<span class="st"> </span><span class="kw">remap</span>(dat,<span class="dt">title =</span> <span class="st">&quot;REmap实例数据&quot;</span>,<span class="dt">subtitle =</span> <span class="st">&quot;theme:Dark&quot;</span>)
+<span class="co"># plot(p) ## htlm输出</span>
+<span class="kw">knitrREmap</span>(p) ## knitr展示</code></pre></div>
+<div id="ID_20181117122538_417" style="height:300px; width:100%"></div>
+<script>  var myChart = echarts.init(document.getElementById("ID_20181117122538_417"));
+
+                       var optionID_20181117122538_417 = {
+  backgroundColor: '#1b1b1b',
+  color: ['gold','aqua','lime'],
+  title : {
+  text: 'REmap实例数据',
+  subtext:'theme:Dark',
+  x:'center',
+  textStyle : {
+  color: '#fff'
+  }
+  },
+  tooltip : {
+  trigger: 'item',
+  formatter: '{b}'
+  },
+  toolbox: {
+  show : true,
+  orient : 'vertical',
+  x: 'right',
+  y: 'center',
+  feature : {
+  mark : {show: true},
+  dataView : {show: true, readOnly: false},
+  restore : {show: true},
+  saveAsImage : {show: true}
+  }
+  },
+  dataRange: {
+  min : 0,
+  show: false,
+  max : 100,
+  y: '60%',
+  calculable : true,
+  color: ['#ff3333', 'orange', 'yellow','lime','aqua']
+  },
+
+  series : [
+  {
+  type:'map',
+  itemStyle:{
+  normal:{
+  borderColor:'rgba(100,149,237,1)',
+  borderWidth: 0.5,
+  areaStyle:{
+  color: '#1b1b1b'
+  }
+  }
+  },
+  data:[],
+  geoCoord: {'北京': [116.4134,39.91092],
+'上海': [121.4805,31.23593]},
+
+  markLine : {
+  smooth:true,
+  effect : {
+  show: true,
+  scaleSize: 1,
+  period: 30,
+  color: '#fff',
+  shadowBlur: 10
+  },
+  itemStyle : {
+  color: 'red',
+  normal: {
+  borderWidth:1,
+  lineStyle: {
+  type: 'solid',
+  shadowBlur: 10
+  },
+  label:{show:false}
+  }
+  },
+
+  data : [
+  [{name:'北京'}, {name:'上海',value:  0}],
+[{name:'北京'}, {name:'广州',value: 80}],
+[{name:'北京'}, {name:'大连',value: 30}],
+[{name:'北京'}, {name:'南宁',value: 10}],
+[{name:'北京'}, {name:'南昌',value: 60}],
+[{name:'北京'}, {name:'拉萨',value: 40}],
+[{name:'北京'}, {name:'长春',value: 40}],
+[{name:'北京'}, {name:'包头',value:100}],
+[{name:'北京'}, {name:'重庆',value: 70}],
+[{name:'北京'}, {name:'常州',value: 80}]
+  ]
+  },
+  markPoint : {
+  symbol:'emptyCircle',
+  symbolSize : function (v){
+  return 10 + v/10
+  },
+  effect : {
+  show: true,
+  shadowBlur : 0
+  },
+  itemStyle:{
+  normal:{
+  label:{show:true}
+  }
+  },
+  data : [
+  {name:'上海',value:  0},
+{name:'广州',value: 80},
+{name:'大连',value: 30},
+{name:'南宁',value: 10},
+{name:'南昌',value: 60},
+{name:'拉萨',value: 40},
+{name:'长春',value: 40},
+{name:'包头',value:100},
+{name:'重庆',value: 70},
+{name:'常州',value: 80}
+  ]
+  }
+  }
+  ]
+  };
+  myChart.setOption(optionID_20181117122538_417);	</script>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">
+## Method 2 
+out =<span class="st"> </span><span class="kw">remap</span>(dat,<span class="dt">title =</span> <span class="st">&quot;REmap实例数据&quot;</span>,<span class="dt">subtitle =</span> <span class="st">&quot;theme:Dark&quot;</span>)
+<span class="kw">knitrREmap</span>(out) ## knitr展示</code></pre></div>
+<div id="ID_20181117122539_490" style="height:300px; width:100%"></div>
+<script>  var myChart = echarts.init(document.getElementById("ID_20181117122539_490"));
+
+                       var optionID_20181117122539_490 = {
+  backgroundColor: '#1b1b1b',
+  color: ['gold','aqua','lime'],
+  title : {
+  text: 'REmap实例数据',
+  subtext:'theme:Dark',
+  x:'center',
+  textStyle : {
+  color: '#fff'
+  }
+  },
+  tooltip : {
+  trigger: 'item',
+  formatter: '{b}'
+  },
+  toolbox: {
+  show : true,
+  orient : 'vertical',
+  x: 'right',
+  y: 'center',
+  feature : {
+  mark : {show: true},
+  dataView : {show: true, readOnly: false},
+  restore : {show: true},
+  saveAsImage : {show: true}
+  }
+  },
+  dataRange: {
+  min : 0,
+  show: false,
+  max : 100,
+  y: '60%',
+  calculable : true,
+  color: ['#ff3333', 'orange', 'yellow','lime','aqua']
+  },
+
+  series : [
+  {
+  type:'map',
+  itemStyle:{
+  normal:{
+  borderColor:'rgba(100,149,237,1)',
+  borderWidth: 0.5,
+  areaStyle:{
+  color: '#1b1b1b'
+  }
+  }
+  },
+  data:[],
+  geoCoord: {},
+
+  markLine : {
+  smooth:true,
+  effect : {
+  show: true,
+  scaleSize: 1,
+  period: 30,
+  color: '#fff',
+  shadowBlur: 10
+  },
+  itemStyle : {
+  color: 'red',
+  normal: {
+  borderWidth:1,
+  lineStyle: {
+  type: 'solid',
+  shadowBlur: 10
+  },
+  label:{show:false}
+  }
+  },
+
+  data : [
+  [{name:'北京'}, {name:'上海',value:40}],
+[{name:'北京'}, {name:'广州',value:80}],
+[{name:'北京'}, {name:'大连',value:70}],
+[{name:'北京'}, {name:'南宁',value:30}],
+[{name:'北京'}, {name:'南昌',value:60}],
+[{name:'北京'}, {name:'拉萨',value: 0}],
+[{name:'北京'}, {name:'长春',value:80}],
+[{name:'北京'}, {name:'包头',value:10}],
+[{name:'北京'}, {name:'重庆',value:10}],
+[{name:'北京'}, {name:'常州',value: 0}]
+  ]
+  },
+  markPoint : {
+  symbol:'emptyCircle',
+  symbolSize : function (v){
+  return 10 + v/10
+  },
+  effect : {
+  show: true,
+  shadowBlur : 0
+  },
+  itemStyle:{
+  normal:{
+  label:{show:true}
+  }
+  },
+  data : [
+  {name:'上海',value:40},
+{name:'广州',value:80},
+{name:'大连',value:70},
+{name:'南宁',value:30},
+{name:'南昌',value:60},
+{name:'拉萨',value: 0},
+{name:'长春',value:80},
+{name:'包头',value:10},
+{name:'重庆',value:10},
+{name:'常州',value: 0}
+  ]
+  }
+  }
+  ]
+  };
+  myChart.setOption(optionID_20181117122539_490);	</script>
+</div>
+<div id="get_theme" class="section level3">
+<h3><span class="header-section-number">6.3.4</span> 3.4个性化设置–get_theme</h3>
+<p>正如之前所说的,为了简化学习和使用的流程,REmap并没有封装太多的参数.如果想更个性化地调整Echarts的参数,请移步Echarts的官方文档<a href="http://echarts.baidu.com/doc/doc.html" class="uri">http://echarts.baidu.com/doc/doc.html</a></p>
+<p>REmap中<code>get_theme</code>提供了迁徙地图中常用颜色的调整:</p>
+<pre><code>get_theme(theme = &quot;Dark&quot;, lineColor = &quot;Random&quot;,
+  backgroundColor = &quot;#1b1b1b&quot;, titleColor = &quot;#fff&quot;,
+  borderColor = &quot;rgba(100,149,237,1)&quot;, regionColor = &quot;#1b1b1b&quot;,
+  labelShow = T, pointShow = F, pointColor = &quot;gold&quot;)</code></pre>
+<table>
+<colgroup>
+<col width="20%" />
+<col width="79%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>参数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>theme</td>
+<td>默认主题,除了三个内置主题,可以使用“none”来自定义颜色<br>a character object in (“Dark”,“Bright,”Sky“,”none“)</td>
+</tr>
+<tr class="even">
+<td>lineColor</td>
+<td>线条颜色,默认随机,也可以指定某种颜色,<br>颜色可以使用<br> (1）、 颜色名(eg: ’red’, ‘skyblue’等）<br> （2）、RGB（eg: ”#1b1b1b”, “#fff”）<br> （3）、rgba （eg: ”rgba(100,100,100,1)“）</td>
+</tr>
+<tr class="odd">
+<td>backgroundColor</td>
+<td>背景颜色</td>
+</tr>
+<tr class="even">
+<td>titleColor</td>
+<td>标题颜色</td>
+</tr>
+<tr class="odd">
+<td>borderColor</td>
+<td>边界颜色(省与省之间的信息)</td>
+</tr>
+<tr class="even">
+<td>regionColor</td>
+<td>区域颜色</td>
+</tr>
+<tr class="odd">
+<td>labelShow</td>
+<td>是否显示每个元素的标签,即是否展示地区名称(仅支持remapC函数)</td>
+</tr>
+<tr class="even">
+<td>pointShow</td>
+<td>是否显示每个元素的中心点,即是否显示地域所在点(仅支持remapC函数)</td>
+</tr>
+<tr class="odd">
+<td>pointColor</td>
+<td>每个元素中心点的颜色(仅支持remapC函数)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>默认模板: Bright</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## default theme:&quot;Bright&quot;
+  <span class="kw">set.seed</span>(<span class="dv">125</span>)
+  out =<span class="st"> </span><span class="kw">remap</span>(dat,<span class="dt">title =</span> <span class="st">&quot;REmap实例数据&quot;</span>,<span class="dt">subtitle =</span> <span class="st">&quot;theme:Bright&quot;</span>,
+              <span class="dt">theme =</span> <span class="kw">get_theme</span>(<span class="st">&quot;Bright&quot;</span>))
+  <span class="kw">knitrREmap</span>(out)</code></pre></div>
+<div id="ID_20181117122540_648" style="height:300px; width:100%"></div>
+<script>  var myChart = echarts.init(document.getElementById("ID_20181117122540_648"));
+
+                       var optionID_20181117122540_648 = {
+  backgroundColor: '#D9D9D9',
+  color: ['gold','aqua','lime'],
+  title : {
+  text: 'REmap实例数据',
+  subtext:'theme:Bright',
+  x:'center',
+  textStyle : {
+  color: '#1b1b1b'
+  }
+  },
+  tooltip : {
+  trigger: 'item',
+  formatter: '{b}'
+  },
+  toolbox: {
+  show : true,
+  orient : 'vertical',
+  x: 'right',
+  y: 'center',
+  feature : {
+  mark : {show: true},
+  dataView : {show: true, readOnly: false},
+  restore : {show: true},
+  saveAsImage : {show: true}
+  }
+  },
+  dataRange: {
+  min : 0,
+  show: false,
+  max : 100,
+  y: '60%',
+  calculable : true,
+  color: ['#ff3333', 'orange', 'yellow','lime','aqua']
+  },
+
+  series : [
+  {
+  type:'map',
+  itemStyle:{
+  normal:{
+  borderColor:'rgba(100,149,237,1)',
+  borderWidth: 0.5,
+  areaStyle:{
+  color: '#fff'
+  }
+  }
+  },
+  data:[],
+  geoCoord: {'南昌': [115.86459,28.68945],
+'拉萨': [ 91.12082,29.65004],
+'长春': [125.33061,43.82195],
+'包头': [109.84654,40.66293],
+'重庆': [106.55844,29.56900],
+'常州': [119.98148,31.81580]},
+
+  markLine : {
+  smooth:true,
+  effect : {
+  show: true,
+  scaleSize: 1,
+  period: 30,
+  color: '#fff',
+  shadowBlur: 10
+  },
+  itemStyle : {
+  color: 'red',
+  normal: {
+  borderWidth:1,
+  lineStyle: {
+  type: 'solid',
+  shadowBlur: 10
+  },
+  label:{show:false}
+  }
+  },
+
+  data : [
+  [{name:'北京'}, {name:'上海',value: 90}],
+[{name:'北京'}, {name:'广州',value: 10}],
+[{name:'北京'}, {name:'大连',value: 30}],
+[{name:'北京'}, {name:'南宁',value: 30}],
+[{name:'北京'}, {name:'南昌',value:100}],
+[{name:'北京'}, {name:'拉萨',value:100}],
+[{name:'北京'}, {name:'长春',value: 50}],
+[{name:'北京'}, {name:'包头',value: 30}],
+[{name:'北京'}, {name:'重庆',value: 70}],
+[{name:'北京'}, {name:'常州',value: 60}]
+  ]
+  },
+  markPoint : {
+  symbol:'emptyCircle',
+  symbolSize : function (v){
+  return 10 + v/10
+  },
+  effect : {
+  show: true,
+  shadowBlur : 0
+  },
+  itemStyle:{
+  normal:{
+  label:{show:true}
+  }
+  },
+  data : [
+  {name:'上海',value: 90},
+{name:'广州',value: 10},
+{name:'大连',value: 30},
+{name:'南宁',value: 30},
+{name:'南昌',value:100},
+{name:'拉萨',value:100},
+{name:'长春',value: 50},
+{name:'包头',value: 30},
+{name:'重庆',value: 70},
+{name:'常州',value: 60}
+  ]
+  }
+  }
+  ]
+  };
+  myChart.setOption(optionID_20181117122540_648);	</script>
+
 <div id="refs" class="references">
 <div>
 <p>Xie, Yihui. 2015. <em>Dynamic Documents with R and Knitr</em>. 2nd ed. Boca Raton, Florida: Chapman; Hall/CRC. <a href="http://yihui.name/knitr/" class="uri">http://yihui.name/knitr/</a>.</p>
 </div>
 <div>
 <p>———. 2018. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown" class="uri">https://CRAN.R-project.org/package=bookdown</a>.</p>
+</div>
+</div>
 </div>
 </div>
 </div>
